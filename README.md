@@ -1,2 +1,2 @@
 # Wordpress - Woocommerce - WPML
-Useful Wordpress, Woocommerce and WPML functions.
+Wordpress, Woocommerce and WPML useful functions.
