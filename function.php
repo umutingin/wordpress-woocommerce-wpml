@@ -167,7 +167,7 @@ add_action('login_head', 'custom_loginlogo');
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 
-//Hide Price and Add-To-Cart Button For Non-Logged In Users
+//Hide Price and Add-To-Cart Button For Guests
 function woocommerce_template_loop_price() {
     if ( is_user_logged_in() )
         woocommerce_get_template( 'loop/price.php' );
@@ -215,7 +215,7 @@ function iconic_bypass_logout_confirmation() {
 }
 add_action( 'template_redirect', 'iconic_bypass_logout_confirmation' );
 
-//Hide Shop Page For Non-Logged In Users (en)
+//Hide Shop Page For Guests (en)
 function custom_redirect_shop_en() {
     if ( ! is_user_logged_in() && 'en' == ICL_LANGUAGE_CODE && ( is_woocommerce() || is_shop() || is_product() || is_product_category() || is_cart() || is_checkout() ) ) {
 		wp_redirect( site_url( '/en/my-account/' ) );
@@ -224,7 +224,7 @@ function custom_redirect_shop_en() {
 }
 add_action('template_redirect', 'custom_redirect_shop_en');
 
-//Hide Shop Page For Non-Logged In Users (tr)
+//Hide Shop Page For Guests (tr)
 function custom_redirect_shop_tr() {
     if ( ! is_user_logged_in() && 'tr' == ICL_LANGUAGE_CODE && ( is_woocommerce() || is_shop() || is_product() || is_product_category() || is_cart() || is_checkout() ) ) {
 		wp_redirect( site_url( '/tr/my-account/' ) );
@@ -268,7 +268,7 @@ function wc_register_form_password_repeat() {
     }	
 }
 
-//Single Product Page Remove Related Products
+//Remove Related Products (Single Product Page)
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 
 //Remove The Additional Information Tab
@@ -278,7 +278,7 @@ function woo_remove_product_tabs( $tabs ) {
 }
 add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
 
-//Remove Register Button In wp-login Page
+//Remove Register Button (wp-login Page)
 function hide_login_links_div() {
 	echo '<style type="text/css">
 		.login #nav {
